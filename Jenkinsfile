@@ -16,5 +16,10 @@ pipeline {
                 echo 'Deploying....'
             }    
         }
+        stage('New thing!!') {
+            steps {
+                echo 'Woot Woot!'
+            }    
+        }
     } 
 }
