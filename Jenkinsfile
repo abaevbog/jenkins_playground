@@ -16,7 +16,7 @@ pipeline {
                 echo 'Deploying....'
             }    
         }
-        stage('New thing!!') {
+        stage('New thing updated!') {
             steps {
                 echo 'Woot Woot!'
             }    
