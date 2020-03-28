@@ -1,0 +1,16 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: kuku
+spec:
+  replicas: 2
+  template:
+    metadata:
+      name: kuku
+      labels:
+        app: kukuapp
+    spec:
+      containers:
+      - image: kukushka/simpe-server:latest
+        name: simpleserver
+        imagePullPolicy: Always 
