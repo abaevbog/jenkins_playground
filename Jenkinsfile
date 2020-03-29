@@ -8,4 +8,8 @@ node {
             customImage.push('latest')
         }   
     }
+    stage('Deploy') {
+        sh 'kubectl rollout restart deployment kuku'
+    }
+    
 }
