@@ -4,13 +4,13 @@ node {
     }
     stage('Server build'){
         docker.withRegistry('', "b023ab53-7cbe-4812-81d9-3d4a1275f490") {
-            def serverImage = docker.build("kukushka/simpe-server:${env.BUILD_ID}", "server/Dockerfile")
+            def serverImage = docker.build("kukushka/simpe-server:${env.BUILD_ID}", "server/")
             serverImage.push('latest')
         }   
     }
     stage('Friend build'){
         docker.withRegistry('', "b023ab53-7cbe-4812-81d9-3d4a1275f490") {
-            def friendImage = docker.build("kukushka/servers_friend:${env.BUILD_ID}", "servers_friend/Dockerfile")
+            def friendImage = docker.build("kukushka/servers_friend:${env.BUILD_ID}", "servers_friend/")
             friendImage.push('latest')
         }   
     }
