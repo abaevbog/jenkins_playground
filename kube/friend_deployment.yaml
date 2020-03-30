@@ -12,5 +12,5 @@ spec:
     spec:
       containers:
       - image: kukushka/servers_friend:latest
-        name: servers_friend
+        name: friend
         imagePullPolicy: Always 
