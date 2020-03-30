@@ -17,7 +17,7 @@ node {
     stage('Deploy') {
         def deployments = sh " kubectl get deployments -o jsonpath='{.items}' "
         sh 'echo ${deployments}'
-        if (deployments.contains('server')) {
+        if (deployments != null && deployments.contains('server')) {
             echo 'Server deployment exists! Updating.'
             sh 'kubectl rollout restart deployment server'
         } else {
@@ -26,7 +26,7 @@ node {
             sh 'kubectl create -f /kube/server_service.yaml'
         }
 
-        if (deployments.contains('friend')) {
+        if (deployments != null && deployments.contains('friend')) {
             echo 'Servers friend deployment exists! Updating.'
             sh 'kubectl rollout restart deployment friend'
         } else {
