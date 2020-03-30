@@ -14,3 +14,4 @@ spec:
       - image: kukushka/servers_friend:latest
         name: friend
         imagePullPolicy: Always 
+        

@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: server-service
 spec:
+  type: LoadBalancer
   selector:
     label: server
   ports:
