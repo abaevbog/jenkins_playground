@@ -19,17 +19,24 @@ node {
         sh "echo ${deployments}"
         if (deployments != null && deployments.contains('server')) {
             echo 'Server deployment exists! Updating.'
-            sh 'kubectl rollout restart deployment server'
+            try {
+                sh 'kubectl rollout restart deployment server'
+            } catch(exc){
+                echo "Caught exception: ${exc}"
+            }
         } else {
             echo 'Server deployments does not exist. Creating...'
-            sh 'ls'
             sh 'kubectl create -f ./kube/server_deployment.yaml'
             sh 'kubectl create -f ./kube/server_service.yaml'
         }
 
         if (deployments != null && deployments.contains('friend')) {
             echo 'Servers friend deployment exists! Updating.'
-            sh 'kubectl rollout restart deployment friend'
+            try{
+                sh 'kubectl rollout restart deployment friend'
+            } catch(exc){
+                echo "Caught exception: ${exc}"
+            }
         } else {
             echo 'Deployment of servers friend does not exist exist. Creating...'
             sh 'kubectl create -f ./kube/friend_deployment.yaml'
