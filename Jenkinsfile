@@ -15,6 +15,7 @@ node {
         }   
     }
     stage('Deploy') {
+        sh "kubectl get deployments -o jsonpath='{.items[*].metadata.name}'"
         def deployments = sh(script: " kubectl get deployments -o jsonpath='{.items[*].metadata.name}'", returnStdout: true)
         sh "echo ${deployments}"
         if (deployments != null && deployments.contains('server')) {
