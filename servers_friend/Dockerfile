@@ -2,7 +2,7 @@ FROM ubuntu
 
 USER root
 WORKDIR /home/
-COPY server.py .
+COPY servers_friend.py .
 ENV FLASK_APP=servers_friend.py 
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
