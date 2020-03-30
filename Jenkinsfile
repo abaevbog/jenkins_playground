@@ -23,8 +23,8 @@ node {
         } else {
             echo 'Server deployments does not exist. Creating...'
             sh 'ls'
-            sh 'kubectl create -f /kube/server_deployment.yaml'
-            sh 'kubectl create -f /kube/server_service.yaml'
+            sh 'kubectl create -f ./kube/server_deployment.yaml'
+            sh 'kubectl create -f ./kube/server_service.yaml'
         }
 
         if (deployments != null && deployments.contains('friend')) {
@@ -32,8 +32,8 @@ node {
             sh 'kubectl rollout restart deployment friend'
         } else {
             echo 'Deployment of servers friend does not exist exist. Creating...'
-            sh 'kubectl create -f /kube/friend_deployment.yaml'
-            sh 'kubectl create -f /kube/friend_service.yaml'
+            sh 'kubectl create -f ./kube/friend_deployment.yaml'
+            sh 'kubectl create -f ./kube/friend_service.yaml'
         }
     }
     
