@@ -22,6 +22,7 @@ node {
             sh 'kubectl rollout restart deployment server'
         } else {
             echo 'Server deployments does not exist. Creating...'
+            sh 'ls'
             sh 'kubectl create -f /kube/server_deployment.yaml'
             sh 'kubectl create -f /kube/server_service.yaml'
         }
