@@ -16,7 +16,7 @@ node {
     }
     stage('Deploy') {
         def deployments = sh " kubectl get deployments -o jsonpath='{.items}' "
-        sh 'echo $deployments'
+        sh 'echo ${deployments}'
         if (deployments.contains('server')) {
             echo 'Server deployment exists! Updating.'
             sh 'kubectl rollout restart deployment server'
