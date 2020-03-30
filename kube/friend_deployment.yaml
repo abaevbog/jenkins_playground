@@ -1,0 +1,16 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: friend
+spec:
+  replicas: 2
+  template:
+    metadata:
+      name: friend
+      labels:
+        app: friend
+    spec:
+      containers:
+      - image: kukushka/servers_friend:latest
+        name: servers_friend
+        imagePullPolicy: Always 

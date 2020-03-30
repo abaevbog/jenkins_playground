@@ -1,14 +1,14 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: kuku
+  name: server
 spec:
   replicas: 2
   template:
     metadata:
-      name: kuku
+      name: server
       labels:
-        app: kukuapp
+        app: server
     spec:
       containers:
       - image: kukushka/simpe-server:latest
