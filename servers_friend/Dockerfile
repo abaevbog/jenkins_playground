@@ -1,17 +1,22 @@
-FROM ubuntu
+FROM ubuntu:latest
 
-USER root
-WORKDIR /home/
-COPY servers_friend.py .
-ENV FLASK_APP=servers_friend.py 
+
+COPY . /app
+WORKDIR /app
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 
-RUN apt-get update && \ 
+RUN apt-get update -y && \ 
     apt install -y python3 python3-pip && \
     pip3 install flask && \
     pip3 install requests
 EXPOSE 5000
-CMD flask run
+
+CMD python3 servers_friend.py
+
+
+
+
+
 
 
