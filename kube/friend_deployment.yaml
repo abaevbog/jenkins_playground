@@ -14,4 +14,7 @@ spec:
       - image: kukushka/servers_friend:latest
         name: friend
         imagePullPolicy: Always 
-        
+        ports:
+        - name: web
+          containerPort: 5000
+          protocol: TCP

@@ -14,3 +14,7 @@ spec:
       - image: kukushka/simpe-server:latest
         name: simpleserver
         imagePullPolicy: Always 
+        ports:
+        - name: web
+          containerPort: 5000
+          protocol: TCP
