@@ -18,3 +18,9 @@ spec:
         - name: web
           containerPort: 5000
           protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 5000
+          initialDelaySeconds: 3
+          periodSeconds: 3
