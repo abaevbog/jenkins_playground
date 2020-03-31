@@ -3,6 +3,7 @@ FROM ubuntu
 USER root
 WORKDIR /home/
 COPY server.py .
+COPY /templates/ ./templates/
 ENV FLASK_APP=server.py 
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8

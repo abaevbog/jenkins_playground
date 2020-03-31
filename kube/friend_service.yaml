@@ -4,7 +4,7 @@ metadata:
   name: friend
 spec:
   selector:
-    label: friend
+    app: friend
   ports:
     - protocol: TCP
       port: 80

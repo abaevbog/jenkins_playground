@@ -8,7 +8,7 @@ app = Flask(__name__)
 def hello():
     name = request.args.get("name", "World")
     try:
-        friend_said = requests.get('http://friend.default.svc.cluster.local').content
+        friend_said = requests.get('http://friend.default.svc.cluster.local:80').content
     except:
         friend_said = "OOPPPSSS"
     env = Environment(loader=FileSystemLoader("templates"))
@@ -17,4 +17,4 @@ def hello():
     return page
 
 if __name__ == '__main__':
-    app.run(port=80)
+    app.run()
