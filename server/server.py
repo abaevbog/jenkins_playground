@@ -10,7 +10,7 @@ def hello():
     try:
         friend_said = requests.get('http://friend.default.svc.cluster.local:80').content
     except:
-        friend_said = "OOPPPSSS"
+        friend_said = b"OOPPPSSS"
     env = Environment(loader=FileSystemLoader("templates"))
     template = env.get_template("index.html")
     page = template.render(data={"friend":"My friend says: {}".format(friend_said.decode("utf-8") )})
